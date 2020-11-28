@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const ExerciseShema = new Schema ({
+const workoutSchema = new Schema ({
     type: {
         type: String,
         trim: true,
@@ -42,6 +42,6 @@ const ExerciseShema = new Schema ({
 }
 )
 
-const Exercise = mongoose.model("Exercise", ExerciseShema)
+const Workout = mongoose.model("Workout", workoutSchema)
 
-module.exports = Exercise
+module.exports = Workout
