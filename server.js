@@ -1,7 +1,12 @@
 const express = require('express')
+const dotenv = require('dotenv')
 const logger = require("morgan")
 const path = require("path")
-const mongoose = require("mongoose")
+const connectDB = require('./config/db.js')
+
+dotenv.config()
+
+connectDB()
 
 const PORT = process.env.PORT || 3000;
 const app = express()
@@ -10,8 +15,6 @@ app.use(logger("dev"))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnessTracker", { useNewUrlParser: true})
 
 app.use(express.static("public"));
 
